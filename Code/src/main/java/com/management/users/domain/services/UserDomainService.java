@@ -5,10 +5,12 @@ import com.management.users.domain.exceptions.EmailAlreadyRegisteredException;
 import com.management.users.domain.exceptions.UserAlreadyDisabledException;
 import com.management.users.domain.exceptions.UserAlreadyEnabledException;
 import com.management.users.domain.repositories.UserRepository;
+import com.management.users.infrastructure.configuration.JwtConfig;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -18,6 +20,7 @@ public class UserDomainService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final JwtConfig jwtConfig;
 
     public List<UserEntity> getAllUsers() {
         return userRepository.findAll();
@@ -36,6 +39,11 @@ public class UserDomainService {
     public UserEntity createUser(UserEntity user) {
         findByEmail(user.getEmail());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setToken(jwtConfig.generateToken(user.getEmail()));
+        user.setCreated(new Date());
+        user.setModified(new Date());
+        user.setLastLogin(new Date());
+        user.setActive(Boolean.TRUE);
         return userRepository.save(user);
     }
 
