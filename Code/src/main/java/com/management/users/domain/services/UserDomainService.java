@@ -3,11 +3,13 @@ package com.management.users.domain.services;
 import com.management.users.domain.entities.PhoneEntity;
 import com.management.users.domain.entities.UserEntity;
 import com.management.users.domain.exceptions.EmailAlreadyRegisteredException;
+import com.management.users.domain.exceptions.RegularExpressionException;
 import com.management.users.domain.exceptions.UserAlreadyDisabledException;
 import com.management.users.domain.exceptions.UserAlreadyEnabledException;
 import com.management.users.domain.repositories.UserRepository;
 import com.management.users.infrastructure.configuration.JwtConfig;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +20,17 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class UserDomainService {
 
+    private final String EXCEPTION_MESSAGE_EMAIL_REGULAR_EXPRESSION = "User email must be valid under the email configurable format";
+    private final String EXCEPTION_MESSAGE_PASSWORD_REGULAR_EXPRESSION = "User password must be valid under the password configurable format";
+
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtConfig jwtConfig;
+
+    @Value("${regex.email.regexp}")
+    private String emailRegularExpression;
+    @Value("${regex.password.regexp}")
+    private String passwordRegularExpression;
 
     public List<UserEntity> getAllUsers() {
         return userRepository.findAll();
@@ -31,6 +41,8 @@ public class UserDomainService {
     }
 
     public UserEntity createUser(UserEntity user) {
+        validateRegularExpression(user.getEmail(), emailRegularExpression, EXCEPTION_MESSAGE_EMAIL_REGULAR_EXPRESSION);
+        validateRegularExpression(user.getPassword(), passwordRegularExpression, EXCEPTION_MESSAGE_PASSWORD_REGULAR_EXPRESSION);
         findByEmail(user.getEmail());
         Date currentDate = new Date();
 
@@ -46,6 +58,8 @@ public class UserDomainService {
 
     public UserEntity updateUser(UUID id, UserEntity userToUpdate) {
         UserEntity currentUser = findById(id);
+        validateRegularExpression(userToUpdate.getEmail(), emailRegularExpression, EXCEPTION_MESSAGE_EMAIL_REGULAR_EXPRESSION);
+        validateRegularExpression(userToUpdate.getPassword(), passwordRegularExpression, EXCEPTION_MESSAGE_PASSWORD_REGULAR_EXPRESSION);
 
         currentUser.setModified(new Date());
         if (validateIfValuesAreDifferent(currentUser.getName(), userToUpdate.getName())) {
@@ -98,6 +112,12 @@ public class UserDomainService {
     private void findByEmail(String email) {
         if (userRepository.findByEmail(email).isPresent()) {
             throw new EmailAlreadyRegisteredException("Email is already in use.");
+        }
+    }
+
+    private void validateRegularExpression(String value, String regularExpression, String exceptionMessage) {
+        if (!value.matches(regularExpression)) {
+            throw new RegularExpressionException(exceptionMessage);
         }
     }
 

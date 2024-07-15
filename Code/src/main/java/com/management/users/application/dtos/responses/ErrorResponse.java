@@ -11,10 +11,10 @@ import java.io.Serializable;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ErrorResponse implements Serializable {
+public class ErrorResponse<T> implements Serializable {
 
     private static final long SERIAL_VERSION_UID = 1L;
 
-    private String message;
+    private T message;
 
 }
