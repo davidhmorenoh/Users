@@ -1,6 +1,7 @@
 package com.management.users.infrastructure.controllers;
 
-import com.management.users.application.dtos.requests.UserRequest;
+import com.management.users.application.dtos.requests.creation.UserCreationRequest;
+import com.management.users.application.dtos.requests.update.UserUpdateRequest;
 import com.management.users.application.dtos.responses.UserResponse;
 import com.management.users.application.use_cases.users.*;
 import jakarta.validation.Valid;
@@ -35,12 +36,12 @@ public class UserController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<UserResponse> createUser(@Valid @RequestBody UserRequest userRequest) {
+    public ResponseEntity<UserResponse> createUser(@Valid @RequestBody UserCreationRequest userRequest) {
         return ResponseEntity.ok(createUseCase.execute(userRequest));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UserResponse> updateUser(@PathVariable UUID id, @Valid @RequestBody UserRequest userRequest) {
+    public ResponseEntity<UserResponse> updateUser(@PathVariable UUID id, @Valid @RequestBody UserUpdateRequest userRequest) {
         return ResponseEntity.ok(updateUseCase.execute(id, userRequest));
     }
 

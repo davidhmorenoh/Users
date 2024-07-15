@@ -27,7 +27,7 @@ public class UserResponse implements Serializable {
 
     private String token;
 
-    private boolean isActive;
+    private boolean active;
 
     private List<PhoneResponse> phones;
 

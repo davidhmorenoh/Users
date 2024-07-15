@@ -7,6 +7,7 @@ import com.management.users.domain.exceptions.UserAlreadyEnabledException;
 import com.management.users.domain.exceptions.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -24,7 +25,8 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({
             UserAlreadyEnabledException.class,
             UserAlreadyDisabledException.class,
-            EmailAlreadyRegisteredException.class})
+            EmailAlreadyRegisteredException.class,
+            HttpMessageNotReadableException.class})
     @ResponseStatus(HttpStatus.PRECONDITION_FAILED)
     public ResponseEntity<ErrorResponse> handlePreconditionFailedException(Exception ex) {
         return new ResponseEntity<>(new ErrorResponse(ex.getMessage()), HttpStatus.PRECONDITION_FAILED);

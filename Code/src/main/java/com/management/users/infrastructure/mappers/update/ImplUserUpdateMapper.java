@@ -1,6 +1,6 @@
-package com.management.users.infrastructure.mappers;
+package com.management.users.infrastructure.mappers.update;
 
-import com.management.users.application.dtos.requests.UserRequest;
+import com.management.users.application.dtos.requests.update.UserUpdateRequest;
 import com.management.users.application.dtos.responses.UserResponse;
 import com.management.users.application.mappers.GenericMapper;
 import com.management.users.domain.entities.UserEntity;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class ImplUserMapper implements GenericMapper<UserRequest, UserResponse, UserEntity> {
+public class ImplUserUpdateMapper implements GenericMapper<UserUpdateRequest, UserResponse, UserEntity> {
 
     private final ModelMapper modelMapper;
 
@@ -20,7 +20,7 @@ public class ImplUserMapper implements GenericMapper<UserRequest, UserResponse, 
     }
 
     @Override
-    public UserEntity toEntity(UserRequest userRequest) {
+    public UserEntity toEntity(UserUpdateRequest userRequest) {
         return modelMapper.map(userRequest, UserEntity.class);
     }
 

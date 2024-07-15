@@ -1,4 +1,4 @@
-package com.management.users.application.dtos.requests;
+package com.management.users.application.dtos.requests.creation;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -13,7 +13,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Getter
 @Setter
-public class PhoneRequest implements Serializable {
+public class PhoneCreationRequest implements Serializable {
 
     private static final long SERIAL_VERSION_UID = 1L;
 

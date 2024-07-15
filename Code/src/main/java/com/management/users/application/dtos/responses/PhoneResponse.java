@@ -15,6 +15,8 @@ public class PhoneResponse implements Serializable {
 
     private static final long SERIAL_VERSION_UID = 1L;
 
+    private String id;
+
     private String number;
 
     private String cityCode;
