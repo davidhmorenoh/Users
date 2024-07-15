@@ -42,8 +42,8 @@ public class UserEntity {
     @Column(nullable = false)
     private String token;
 
-    @Column(name = "is_active", nullable = false)
-    private boolean isActive;
+    @Column(nullable = false)
+    private Boolean active;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false)

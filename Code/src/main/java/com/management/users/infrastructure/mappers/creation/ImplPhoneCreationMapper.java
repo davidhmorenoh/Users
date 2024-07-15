@@ -1,6 +1,6 @@
-package com.management.users.infrastructure.mappers;
+package com.management.users.infrastructure.mappers.creation;
 
-import com.management.users.application.dtos.requests.PhoneRequest;
+import com.management.users.application.dtos.requests.creation.PhoneCreationRequest;
 import com.management.users.application.dtos.responses.PhoneResponse;
 import com.management.users.application.mappers.GenericMapper;
 import com.management.users.domain.entities.PhoneEntity;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class ImplPhoneMapper implements GenericMapper<PhoneRequest, PhoneResponse, PhoneEntity> {
+public class ImplPhoneCreationMapper implements GenericMapper<PhoneCreationRequest, PhoneResponse, PhoneEntity> {
 
     private final ModelMapper modelMapper;
 
@@ -20,7 +20,7 @@ public class ImplPhoneMapper implements GenericMapper<PhoneRequest, PhoneRespons
     }
 
     @Override
-    public PhoneEntity toEntity(PhoneRequest phoneRequest) {
+    public PhoneEntity toEntity(PhoneCreationRequest phoneRequest) {
         return modelMapper.map(phoneRequest, PhoneEntity.class);
     }
 
