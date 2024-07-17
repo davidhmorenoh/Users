@@ -8,16 +8,21 @@ import com.management.users.domain.exceptions.UserAlreadyDisabledException;
 import com.management.users.domain.exceptions.UserAlreadyEnabledException;
 import com.management.users.domain.repositories.UserRepository;
 import com.management.users.infrastructure.configuration.JwtConfig;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Getter
+@Setter
 public class UserDomainService {
 
     private final String EXCEPTION_MESSAGE_EMAIL_REGULAR_EXPRESSION = "User email must be valid under the email configurable format";
@@ -40,12 +45,14 @@ public class UserDomainService {
         return userRepository.findById(id);
     }
 
+    @Transactional
     public UserEntity createUser(UserEntity user) {
-        validateRegularExpression(user.getEmail(), emailRegularExpression, EXCEPTION_MESSAGE_EMAIL_REGULAR_EXPRESSION);
-        validateRegularExpression(user.getPassword(), passwordRegularExpression, EXCEPTION_MESSAGE_PASSWORD_REGULAR_EXPRESSION);
+        validateRegularExpression(user.getEmail(), getEmailRegularExpression(), EXCEPTION_MESSAGE_EMAIL_REGULAR_EXPRESSION);
+        validateRegularExpression(user.getPassword(), getPasswordRegularExpression(), EXCEPTION_MESSAGE_PASSWORD_REGULAR_EXPRESSION);
         findByEmail(user.getEmail());
         Date currentDate = new Date();
 
+        user.setId(UUID.randomUUID());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setToken(jwtConfig.generateToken(user.getEmail()));
         user.setCreated(currentDate);
@@ -58,8 +65,8 @@ public class UserDomainService {
 
     public UserEntity updateUser(UUID id, UserEntity userToUpdate) {
         UserEntity currentUser = findById(id);
-        validateRegularExpression(userToUpdate.getEmail(), emailRegularExpression, EXCEPTION_MESSAGE_EMAIL_REGULAR_EXPRESSION);
-        validateRegularExpression(userToUpdate.getPassword(), passwordRegularExpression, EXCEPTION_MESSAGE_PASSWORD_REGULAR_EXPRESSION);
+        validateRegularExpression(userToUpdate.getEmail(), getEmailRegularExpression(), EXCEPTION_MESSAGE_EMAIL_REGULAR_EXPRESSION);
+        validateRegularExpression(userToUpdate.getPassword(), getPasswordRegularExpression(), EXCEPTION_MESSAGE_PASSWORD_REGULAR_EXPRESSION);
 
         currentUser.setModified(new Date());
         if (validateIfValuesAreDifferent(currentUser.getName(), userToUpdate.getName())) {

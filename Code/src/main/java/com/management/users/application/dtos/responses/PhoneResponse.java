@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 @Setter
 @Getter
@@ -15,7 +16,7 @@ public class PhoneResponse implements Serializable {
 
     private static final long SERIAL_VERSION_UID = 1L;
 
-    private String id;
+    private UUID id;
 
     private String number;
 

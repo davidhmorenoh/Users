@@ -3,11 +3,14 @@ package com.management.users;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class UsersApplicationTests {
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-	@Test
-	void contextLoads() {
-	}
+@SpringBootTest
+public class UsersApplicationTests {
+
+    @Test
+    void contextLoads() {
+        assertTrue(Boolean.TRUE);
+    }
 
 }
