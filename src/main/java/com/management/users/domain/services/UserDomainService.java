@@ -14,7 +14,6 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -45,7 +44,6 @@ public class UserDomainService {
         return userRepository.findById(id);
     }
 
-    @Transactional
     public UserEntity createUser(UserEntity user) {
         validateRegularExpression(user.getEmail(), getEmailRegularExpression(), EXCEPTION_MESSAGE_EMAIL_REGULAR_EXPRESSION);
         validateRegularExpression(user.getPassword(), getPasswordRegularExpression(), EXCEPTION_MESSAGE_PASSWORD_REGULAR_EXPRESSION);
