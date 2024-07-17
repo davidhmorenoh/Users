@@ -111,7 +111,7 @@ Este proyecto está licenciado bajo los términos de la [MIT License](LICENSE).
 
 Este README proporciona una guía completa para configurar, ejecutar, entender y contribuir al proyecto. Si tienes alguna pregunta o encuentras algún problema, no dudes en abrir un issue en el repositorio.
 
--
+--
 
 # English version
 
