@@ -1,17 +1,17 @@
-#Versión en español
+# Versión en español
 
-##Aplicación de gestión de usuarios
+## Aplicación de gestión de usuarios
 
-###Descripción
+### Descripción
 
 Esta aplicación está desarrollada en Java versión 22, utilizando Spring Boot versión 3.3.1 y administrada con Maven. La aplicación permite gestionar usuarios a través de una API RESTful.
 
-###Requisitos
+### Requisitos
 
 - Java 22
 - Maven 4.0.0
 
-###Configuración y ejecución
+### Configuración y ejecución
 
 1. **Clone el repositorio**:
 
@@ -32,16 +32,16 @@ mvn spring-boot:run
 
 4. **La aplicación se ejecutará localmente en el puerto 8081**.
 
-###Base de datos
+### Base de datos
 
 La aplicación usa una base de datos H2 local.
 
-###Estructura del repositorio
+### Estructura del repositorio
 
 - **Code**: Carpeta que contiene todo el código fuente.
 - **Database**: Carpeta que contiene el script de la base de datos.
 
-###Especificación OpenAPI
+### Especificación OpenAPI
 
 La especificación OpenAPI se encuentran disponibles en los siguientes recursos:
 
@@ -50,11 +50,11 @@ La especificación OpenAPI se encuentran disponibles en los siguientes recursos:
 
 Para probar los endpoints, utilice Swagger UI.
 
-###Endpoints públicos
+### Endpoints públicos
 
 Todos los endpoints no requieren autenticación (inicio de sesión) cuando se ejecuta la aplicación.
 
-###Arquitectura, patrones de diseño, principios y buenas practicas de desarrollo de software
+### Arquitectura, patrones de diseño, principios y buenas practicas de desarrollo de software
 
 La aplicación está desarrollada bajo una arquitectura orientada al dominio (patrón hexagonal) e implementa una combinación de patrones de diseño, principios de desarrollo y buenas prácticas para garantizar su modularidad, mantenibilidad y eficiencia. A continuación, se detallan los enfoques y principios aplicados:
 
@@ -75,11 +75,11 @@ La aplicación está desarrollada bajo una arquitectura orientada al dominio (pa
 
 Estos enfoques y principios aseguran que la aplicación no solo cumpla con sus objetivos funcionales, sino que también sea robusta, fácil de mantener y extensible a largo plazo.
 
-###Pruebas unitarias
+### Pruebas unitarias
 
 La cobertura del código mediante pruebas unitarias es aproximadamente del 96%.
 
-###Endpoints
+### Endpoints
 
 - Obtener todos los usuarios (GET): /users
 - Obtener usuario por ID (GET): /users/{id}
@@ -89,7 +89,7 @@ La cobertura del código mediante pruebas unitarias es aproximadamente del 96%.
 - Deshabilitar usuario (PATCH): /users/{id}/disable
 - Eliminar usuario (DELETE): /users/{id}
 
-###Diagrama de la solución
+### Diagrama de la solución
 
 - El diagrama de la solución está alojado en el siguiente enlace: Lucidchart
 
@@ -111,23 +111,22 @@ Este proyecto está licenciado bajo los términos de la [MIT License](LICENSE).
 
 Este README proporciona una guía completa para configurar, ejecutar, entender y contribuir al proyecto. Si tienes alguna pregunta o encuentras algún problema, no dudes en abrir un issue en el repositorio.
 
+**---**
 
+# English version
 
+## User management application
 
-#English version
-
-##User management application
-
-###Description
+### Description
 
 This application is developed in Java version 22, using Spring Boot version 3.3.1, and managed with Maven. The application allows user management through a RESTful API.
 
-###Requirements
+### Requirements
 
 Java 22
 Maven 4.0.0
 
-##Setup and run
+### Setup and run
 
 1. **Clone the repository**:
 
@@ -149,16 +148,16 @@ mvn spring-boot:run
 
 4. **The application will run locally on port 8081**.
 
-###Database
+### Database
 
 The application uses a local H2 database.
 
-###Repository structure
+### Repository structure
 
 - **Code**: Folder containing all the source code.
 - **Database**: Folder containing the database script.
 
-###OpenAPI specification
+### OpenAPI specification
 
 The OpenAPI specification is available at the following resources:
 
@@ -167,11 +166,11 @@ The OpenAPI specification is available at the following resources:
 
 To test the endpoints, use Swagger UI.
 
-###Public endpoints
+### Public endpoints
 
 All endpoints do not require authentication (login) when the application is running.
 
-###Architecture, design patterns, principles, and best practices in software development
+### Architecture, design patterns, principles, and best practices in software development
 
 The application is developed under a domain-oriented architecture (hexagonal pattern) and implements a combination of design patterns, development principles, and best practices to ensure its modularity, maintainability, and efficiency. The following approaches and principles are applied:
 
@@ -192,11 +191,11 @@ The application is developed under a domain-oriented architecture (hexagonal pat
 
 These approaches and principles ensure that the application not only meets its functional goals but is also robust, easy to maintain, and extensible in the long term.
 
-###Unit testing
+### Unit testing
 
 The code coverage through unit tests is approximately 96%.
 
-##Endpoints
+### Endpoints
 
 - Get all users (GET): /users
 - Get user by ID (GET): /users/{id}
@@ -206,11 +205,11 @@ The code coverage through unit tests is approximately 96%.
 - Disable user (PATCH): /users/{id}/disable
 - Delete user (DELETE): /users/{id}
 
-###Solution diagram
+### Solution diagram
 
 The solution diagram is hosted at the following link: Lucidchart
 
-###Contributions
+### Contributions
 
 Contributions are welcome. To contribute, please follow these steps:
 
@@ -220,7 +219,7 @@ Contributions are welcome. To contribute, please follow these steps:
 4. Push your branch (`git push origin feature/new-feature`).
 5. Open a Pull Request.
 
-###License
+### License
 
 This project is licensed under the terms of the [MIT License](LICENSE).
 
