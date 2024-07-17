@@ -15,9 +15,9 @@ Esta aplicación está desarrollada en Java versión 22, utilizando Spring Boot 
 
 1. **Clone el repositorio**:
 
-```git
-git clone [URL del repositorio]
-cd [nombre del repositorio]
+```bash
+git clone https://github.com/davidhmorenoh/Users.git
+cd Users
 ```
 
 2. **Construir el proyecto**:
@@ -34,12 +34,7 @@ mvn spring-boot:run
 
 ### Base de datos
 
-La aplicación usa una base de datos H2 local.
-
-### Estructura del repositorio
-
-- **Code**: Carpeta que contiene todo el código fuente.
-- **Database**: Carpeta que contiene el script de la base de datos.
+La aplicación usa una base de datos H2 local y tiene una inicialización de datos mediante un script ubicado `src/main/resources/data.sql`.
 
 ### Especificación OpenAPI
 
@@ -111,7 +106,7 @@ Este proyecto está licenciado bajo los términos de la [MIT License](LICENSE).
 
 Este README proporciona una guía completa para configurar, ejecutar, entender y contribuir al proyecto. Si tienes alguna pregunta o encuentras algún problema, no dudes en abrir un issue en el repositorio.
 
-----
+---
 
 # English version
 
@@ -130,9 +125,9 @@ Maven 4.0.0
 
 1. **Clone the repository**:
 
-```git
-git clone [URL del repositorio]
-cd [nombre del repositorio]
+```bash
+git clone https://github.com/davidhmorenoh/Users.git
+cd Users
 ```
 2. **Build the project**:
 
@@ -150,12 +145,7 @@ mvn spring-boot:run
 
 ### Database
 
-The application uses a local H2 database.
-
-### Repository structure
-
-- **Code**: Folder containing all the source code.
-- **Database**: Folder containing the database script.
+The application uses a local H2 database and has data initialization using a script located `src/main/resources/data.sql`.
 
 ### OpenAPI specification
 
