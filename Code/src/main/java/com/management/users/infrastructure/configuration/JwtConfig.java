@@ -25,7 +25,7 @@ public class JwtConfig {
                 .compact();
     }
 
-    private Key getKeyFromPassword(String encodedKey) {
+    public Key getKeyFromPassword(String encodedKey) {
         byte[] decodedKey = Base64.getDecoder().decode(encodedKey);
         return Keys.hmacShaKeyFor(decodedKey);
     }

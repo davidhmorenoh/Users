@@ -1,4 +1,4 @@
-package com.management.users.application.dtos.requests.creation;
+package com.management.users.application.dtos.requests;
 
 import com.management.users.application.validation.ValidEmailFormat;
 import com.management.users.application.validation.ValidPasswordFormat;
@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class UserCreationRequest implements Serializable {
+public class UserRequest implements Serializable {
 
     private static final long SERIAL_VERSION_UID = 1L;
 
@@ -34,6 +34,6 @@ public class UserCreationRequest implements Serializable {
     private String password;
 
     @NotNull(message = "User phones is mandatory")
-    private List<PhoneCreationRequest> phones;
+    private List<PhoneRequest> phones;
 
 }

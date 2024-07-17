@@ -1,4 +1,4 @@
-package com.management.users.application.dtos.requests.creation;
+package com.management.users.application.dtos.requests;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -8,14 +8,17 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class PhoneCreationRequest implements Serializable {
+public class PhoneRequest implements Serializable {
 
     private static final long SERIAL_VERSION_UID = 1L;
+
+    private UUID id;
 
     @NotBlank(message = "Number phone is mandatory")
     @Size(min = 3, max = 10, message = "Number phone must be between 3 and 10 characters")

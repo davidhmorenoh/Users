@@ -18,7 +18,7 @@ public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(nullable = false)
+    @Column(nullable = false, updatable = false)
     private UUID id;
 
     @Column(nullable = false)
@@ -31,12 +31,15 @@ public class UserEntity {
     private String password;
 
     @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date created;
 
     @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date modified;
 
     @Column(name = "last_login", nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date lastLogin;
 
     @Column(nullable = false)
@@ -45,8 +48,8 @@ public class UserEntity {
     @Column(nullable = false)
     private Boolean active;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id", nullable = false)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @JoinColumn(name = "user_id")
     private List<PhoneEntity> phones;
 
 }

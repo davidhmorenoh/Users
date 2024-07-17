@@ -8,6 +8,7 @@ import lombok.Setter;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Setter
 @Getter
@@ -17,7 +18,7 @@ public class UserResponse implements Serializable {
 
     private static final long SERIAL_VERSION_UID = 1L;
 
-    private String id;
+    private UUID id;
 
     private Date created;
 
