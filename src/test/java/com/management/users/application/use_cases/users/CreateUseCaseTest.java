@@ -41,7 +41,7 @@ public class CreateUseCaseTest {
         PhoneRequest phoneRequest = new PhoneRequest(UUID.randomUUID(), "Celular", "1", "60");
         List<PhoneRequest> phoneRequests = new ArrayList<>();
         phoneRequests.add(phoneRequest);
-        userRequest = new UserRequest("Test User", "test@user.com", "password", phoneRequests);
+        userRequest = new UserRequest(UUID.randomUUID(), "Test User", "test@user.com", "password", phoneRequests);
 
         PhoneResponse phoneResponse = new PhoneResponse(UUID.randomUUID(), "Celular", "1", "60");
         List<PhoneResponse> phoneResponses = new ArrayList<>();

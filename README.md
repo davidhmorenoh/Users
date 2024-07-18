@@ -86,7 +86,13 @@ La cobertura del código mediante pruebas unitarias es aproximadamente del 96%.
 
 ### Diagrama de la solución
 
-- El diagrama de la solución está alojado en el siguiente enlace: Lucidchart
+El diagrama realiza una representación a muy alto nivel sobre la interacción del proyecto en sus diferentes capas y compornentes con sus respectivos actores:
+
+- Las capas del proyecto siguiendo la arquitectura hexágonal están nombradas y se representan en un recuadro con un color en específico.
+- Los actores, componentes e interacciones se representan según el caso con una figura alusiva y con el mismo color de la capa en donde están contenidas.
+- Las interacciones entre capas se representan con el color azul.
+
+![Diagrama](/Diagram.jpg)
 
 ### Contribuciones
 
@@ -197,7 +203,13 @@ The code coverage through unit tests is approximately 96%.
 
 ### Solution diagram
 
-The solution diagram is hosted at the following link: Lucidchart
+The diagram makes a very high level representation of the interaction of the project in its different layers and behaviors with their respective actors:
+
+- The layers of the project following the hexagonal architecture are named and represented in a box with a specific color.
+- The actors, components and interactions are represented as appropriate with an allusive figure and with the same color of the layer in which they are contained.
+- Interactions between layers are represented with the color blue.
+
+![Diagram](/Diagram.jpg)
 
 ### Contributions
 
@@ -216,3 +228,5 @@ This project is licensed under the terms of the [MIT License](LICENSE).
 ---
 
 This README provides a comprehensive guide to setup, run, understand, and contribute to the project. If you have any questions or encounter any issues, please feel free to open an issue in the repository.
+
+---

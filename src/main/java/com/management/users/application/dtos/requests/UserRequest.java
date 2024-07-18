@@ -12,6 +12,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,6 +21,8 @@ import java.util.List;
 public class UserRequest implements Serializable {
 
     private static final long SERIAL_VERSION_UID = 1L;
+
+    private UUID id;
 
     @NotBlank(message = "Name is mandatory")
     @Size(min = 3, max = 100, message = "Name must be between 3 and 100 characters")
